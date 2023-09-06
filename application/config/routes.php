@@ -3,6 +3,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['default_controller'] = 'Main';
 
+// admin user 
+$route['list_user'] =  'Admin/Main_controller/view_user';
+$route['buat_user'] =  'Admin/Main_controller/create_user';
+$route['buat_user/process'] =  'Admin/Main_controller/save_user';
+$route['user/aktivasi/(:any)'] = 'Admin/Main_controller/activated_user/$1';
+$route['user/hapus/(:any)'] = 'Admin/Main_controller/delete_user/$1';
+
+// auth
+$route['auth'] = 'Auth/login';
+$route['auth/login'] = 'Auth/login_process';
+$route['auth/logout'] = 'Auth/logout';
+
+
+
+
+
+
 // satker or guest
 $route['daftar_permohonan'] = 'View_controller/guest_view';
 $route['daftar_progress'] = 'View_controller/daftarProgress_view';
@@ -27,11 +44,6 @@ $route['permohonan/pro/cancel/(:any)'] = 'Update_controller/processCancel/$1';
 
 $route['download/(:any)'] = 'Update_controller/download_berkas/$1';
 
-// auth
-$route['login'] = 'Insert_controller/login';
-$route['auth/login'] = 'Insert_controller/proses_login';
-$route['register'] = 'Insert_controller/register';
-$route['auth/register'] = 'Insert_controller/proses_register';
 
 // admin
 $route['daftar_user'] = 'Insert_controller/create_user';
