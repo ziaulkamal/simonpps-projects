@@ -1,4 +1,7 @@
 <div class="container-fluid general-widget">
+  <div class="col-sm-12 col-xl-12 col-lg-12">
+    <?php $this->load->view('partials/alerts'); ?>
+  </div>
             <div class="row">
               <div class="col-sm-6 col-xl-3 col-lg-6">
                 <div class="card o-hidden border-0">

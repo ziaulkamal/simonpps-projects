@@ -16,34 +16,29 @@
 						<div class="row g-3">
 							<div class="col-md-6">
 								<label class="form-label text-dark" for="">Nama Satuan Kerja</label>
-								<input class="form-control" name="nama_satker" id="name_satker" type="text" required="">
+								<input class="form-control" name="nama_satker" id="name_satker" type="text" value="<?= set_value('nama_satker') ?>" required="">
 								<div class="form-text text-danger"><?= form_error('nama_satker'); ?></div>
 
 							</div>
 							<div class="col-md-6">
-								<label class="form-label text-dark" for="">Username</label>
-								<input class="form-control" name="user" id="user" type="text" required="">
-								<div class="form-text text-danger"><?= form_error('user'); ?></div>
-
-							</div>
-							<div class="col-md-6">
 								<label class="form-label text-dark" for="">Email</label>
-								<input class="form-control" name="email" id="email" type="email" required="">
+								<input class="form-control" name="email" id="email" type="email" value="<?= set_value('email') ?>" required="">
 								<div class="form-text text-danger"><?= form_error('email'); ?></div>
 							</div>
 							<div class="col-md-6">
 								<label class="form-label text-dark" for="">Password</label>
-								<input class="form-control" name="pass" id="pass" type="text" required="">
+								<input class="form-control" name="pass" id="pass" type="password" value="<?= set_value('pass') ?>" required="">
 								<div class="form-text text-danger"><?= form_error('pass'); ?></div>
 							</div>
 							<div class="col-md-6 mb-3">
 								<label class="form-label text-dark" for="">Level Akses</label>
 								<select class="form-select digits" name="level" id="level">
-									<option default>-- Pilih --</option>
+									<option value="" default>-- Pilih --</option>
 									<option value="admin">Admin</option>
 									<option value="guest">Guest</option>
 									<option value="seksi-pps">Seksi PPS</option>
 								</select>
+							<div class="form-text text-danger"><?= form_error('level'); ?></div>
 							</div>
 						</div>
 						<button class="btn btn-primary" type="submit">Buat Akun</button>

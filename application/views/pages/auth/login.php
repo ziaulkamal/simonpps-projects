@@ -48,13 +48,18 @@
     <section>         
       <div class="container-fluid p-0">
         <div class="row">
-          <div class="col-12">              
+          <div class="col-12">  
+           
             <div class="login-card">
               <form method="POST" action="<?= base_url($action); ?>" enctype="multipart/form-data" class="theme-form login-form user">
                <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>">
                 <h4 class="text-center">Login</h4>
                 <h6 class="text-center">Welcome back! Log in to your account.</h6>
-                <?php $this->load->view('partials/alerts');?>
+                <?php if (isset($msg)) { ?>
+                 <div class="alert alert-success dark alert-dismissible fade show" role="alert"><?= $msg;?>
+                    <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php }?>
                 <div class="form-group">
                   <label>Username</label>
                   <div class="input-group"><span class="input-group-text"><i class="icon-user"></i></span>

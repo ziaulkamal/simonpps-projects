@@ -85,7 +85,7 @@
                 </ul>
               </li>
               <li class="onhover-dropdown p-0">
-                <button class="btn btn-primary-light" type="button"><a href="<?= base_url('login')?>"><i data-feather="log-out"></i>Keluar</a></button>
+                <button class="btn btn-primary-light" type="button"><a href="<?= base_url('auth/logout')?>"><i data-feather="log-out"></i>Keluar</a></button>
               </li>
             </ul>
           </div>
