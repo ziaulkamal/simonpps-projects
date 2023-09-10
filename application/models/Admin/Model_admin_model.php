@@ -30,6 +30,19 @@ class Model_admin_model extends CI_Model
         $this->db->delete('tb_pengguna');
         return;
     }
+
+    function result_done() {
+        $this->db->join('tb_pemohon', 'tb_pemohon.dokumen_idPE = tb_dokumen.id_dokumenDO');
+        $this->db->where('tb_dokumen.jns_dokDO', 'selesai');
+        return $this->db->get('tb_dokumen');
+    }
+
+    function survey_done() {
+        $this->db->select('ratingNum');
+        
+        return $this->db->get('tb_survey');
+        
+    }
                         
 }
 

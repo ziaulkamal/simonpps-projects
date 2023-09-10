@@ -75,7 +75,7 @@ class View_model extends CI_Model {
     {
         $this->db->select('*');
         $this->db->from('tb_progress_pekerjaan');
-        $this->db->join('tb_pemohon pemohon', 'pemohon.id_pemohonPE = tb_progress_pekerjaan.pemohon_idPR');
+        $this->db->join('tb_pemohon', 'pemohon.id_pemohonPE = tb_progress_pekerjaan.pemohon_idPR');
         $this->db->where('pemohon.id_pemohonPE', $id_pemohonPE);
         return $this->db->get()->row_array();
     }

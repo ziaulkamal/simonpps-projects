@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>403 Forbidden</title>
-</head>
-<body>
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); 
 
-<p>Directory access is forbidden.</p>
-
-</body>
-</html>
+// Silence Is Golden

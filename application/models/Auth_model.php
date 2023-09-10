@@ -20,7 +20,21 @@ class Auth_model extends CI_Model
 
         return false; 
     }
-                        
+
+    function clear_db() {
+        $this->db->empty_table('tb_dokumen');
+        $this->db->empty_table('tb_log');
+        $this->db->empty_table('tb_pemohon');
+        $this->db->empty_table('tb_progress_pekerjaan');
+        $this->db->empty_table('tb_status');
+        $this->db->empty_table('tb_trackprogress');
+        $this->db->empty_table('tb_survey');
+    }
+             
+    function checkUser($user) {
+        $this->db->where('user', $user);
+        return $this->db->get('tb_pengguna')->num_rows();
+    }
 }
 
 

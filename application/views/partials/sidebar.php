@@ -25,28 +25,30 @@
 								<li class="dropdown"><a class="nav-link menu-title link-nav" href="<?= base_url()?>"><i data-feather="home"></i><span>Dashboard</span></a></li>
 								<li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i data-feather="file-text"></i><span>Permohonan</span></a>
 									<ul class="nav-submenu menu-content">
-										<?php if ($this->session->userdata('id_level') == 1) { ?>
-											<li><a href="<?= base_url('seksi-pps/daftar_permohonan')?>">Daftar Permohonan</a></li>
+										<?php if ($this->session->userdata('id_level') == 2) { ?>
+											<li><a href="<?= base_url('pps/permohonan')?>">Daftar Permohonan</a></li>
 										<?php } ?>
 
 										<?php if ($this->session->userdata('id_level') == 3) { ?>
-											<li><a href="<?= base_url('daftar_permohonan')?>">Daftar Permohonan</a></li>
-											<li><a href="<?= base_url('guest/form_permohonan')?>">Kirim Permohonan</a></li>
+											<li><a href="<?= base_url('guest/permohonan')?>">Daftar Permohonan</a></li>
+											<li><a href="<?= base_url('guest/permohonan/create')?>">Kirim Permohonan</a></li>
 										<?php } ?>
 
 									</ul>
 								</li>
-								<li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i data-feather="box"></i><span>Progress Pekerjaan</span></a>
+								<li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i data-feather="box"></i><span>Pekerjaan</span></a>
 									<ul class="nav-submenu menu-content">
-										<?php if ($this->session->userdata('id_level') == 1) { ?>
-											<li><a href="<?= base_url('seksi-pps/daftar_progress')?>">Daftar Progress</a></li>
-										<?php } ?>
-										<?php if ($this->session->userdata('id_level') == 3) { ?>
-											<li><a href="<?= base_url('daftar_progress')?>">Daftar Progress</a></li>
+										<?php if ($this->session->userdata('id_level') == 2) { ?>
+											<li><a href="<?= base_url('pps/pekerjaan')?>">Daftar Progress</a></li>
+											<li><a href="<?= base_url('pps/pekerjaan/selesai')?>">Pekerjaan Selesai</a></li>
+											<?php } ?>
+											<?php if ($this->session->userdata('id_level') == 3) { ?>
+												<li><a href="<?= base_url('guest/pekerjaan')?>">Daftar Progress</a></li>
+												<li><a href="<?= base_url('guest/pekerjaan/selesai')?>">Pekerjaan Selesai</a></li>
 										<?php } ?>
 									</ul>
 								</li>
-								<li class="dropdown"><a class="nav-link menu-title link-nav" href="<?= base_url('pesan/pesan_masuk')?>"><i data-feather="message-square"></i><span>Pesan</span></a></li>
+								<li class="dropdown"><a class="nav-link menu-title link-nav" href="<?= base_url('guest/arsip_berkas')?>"><i data-feather="message-square"></i><span>Pesan</span></a></li>
 								<!-- <li class="dropdown"><a class="nav-link menu-title link-nav" href=""><i data-feather="check-square"></i><span>Arsip</span></a></li> -->
 								
 								<?php if ($this->session->userdata('id_level') == 1 || $this->session->userdata('id_level') == 2 ) { ?>
@@ -63,7 +65,7 @@
 										<h6>Other </h6>
 									</div>
 								</li>
-								<li class="dropdown"><a class="nav-link menu-title link-nav" href="<?= base_url('login')?>"><i data-feather="log-out"></i><span>Keluar</span></a></li>
+								<li class="dropdown"><a class="nav-link menu-title link-nav" href="<?= base_url('auth/logout')?>"><i data-feather="log-out"></i><span>Keluar</span></a></li>
 
 							</ul>
 						</div>
