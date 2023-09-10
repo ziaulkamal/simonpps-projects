@@ -26,6 +26,7 @@
 		rel="stylesheet">
 	<!-- Font Awesome-->
 	<link rel="stylesheet" type="text/css" href="<?= base_url('public/')?>css/fontawesome.css">
+	<link rel="stylesheet" type="text/css" href="<?= base_url('public/')?>css/rating.css">
 	<!-- ico-font-->
 	<link rel="stylesheet" type="text/css" href="<?= base_url('public/')?>css/icofont.css">
 	<!-- Themify icon-->
@@ -42,29 +43,22 @@
 	<!-- Responsive css-->
 	<link rel="stylesheet" type="text/css" href="<?= base_url('public/')?>css/responsive.css">
 
-	<!-- table start -->
-	<?php if ($this->uri->segment(1) == 'daftar_permohonan' || $this->uri->segment(1) == 'daftar_progress'|| $this->uri->segment(1) == 'pesan'|| $this->uri->segment(1) == 'list_user') { ?>
-		<link rel="stylesheet" type="text/css" href="<?= base_url('public/')?>css/datatables.css">
-		<?php } ?>
-		<?php if ($this->uri->segment(2) == 'daftar_permohonan' || $this->uri->segment(2) == 'daftar_progress') { ?>
-			
-			<link rel="stylesheet" type="text/css" href="<?= base_url('public/')?>css/datatables.css">
-	<?php } ?>
-
-	<!-- table end -->
+	<?php if (isset($dataTable)) { ?>
+	<link rel="stylesheet" type="text/css" href="<?= base_url('public/')?>css/datatables.css">
+	<?php }?>
 </head>
 
 <body>
 
 	<!-- Loader starts-->
-	<!-- <div class="loader-wrapper">
+	<div class="loader-wrapper">
 		<div class="theme-loader">
 			<div class="loader-p"></div>
 		</div>
-	</div> -->
+	</div>
 	<!-- Loader ends-->
 	<!-- page-wrapper Start       -->
-	<div class="page-wrapper compact-wrapper" id="pageWrapper">
+	<div class="page-wrapper compact-wrapper modern-sidebar" id="pageWrapper">
 
 		<!-- topbar -->
         <?php $this->load->view('partials/topbar');?>
@@ -73,6 +67,8 @@
             <!-- sidebar -->
         <?php $this->load->view('partials/sidebar');?>
         <div class="page-body">
-		<?php var_dump($this->session->userdata());?>
+		<?php 
+		// var_dump( $this->session->userdata());
+		?>
 	<!-- footer -->
 		
