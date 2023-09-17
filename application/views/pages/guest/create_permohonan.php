@@ -1,7 +1,7 @@
 <div class="container-fluid">
 	<div class="page-header">
 		<div class="row">
-			<div class="col-sm-6">
+			<div class="col-sm-6 pt-5">
 				<h3><?= $pageTitle ?></h3>
 				<?php $this->load->view('partials/breadcumb');?>
 			</div>
@@ -104,7 +104,6 @@
 						</div>
 						<div class="row g-3 mt-2">
 							<div class="col-md-4">
-
 								<button class="btn btn-primary" type="submit">Kirim Data</button>
 							</div>
 						</div>

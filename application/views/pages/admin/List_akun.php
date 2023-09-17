@@ -24,7 +24,7 @@
 								<tr>
 									<th>No</th>
 									<th>Nama Satuan Kerja</th>
-									<th>Username</th>
+									<th>Email</th>
 									<th>Level Akses</th>
 									<th>Terdaftar</th>
 									<th>Aksi</th>
@@ -42,14 +42,14 @@
                                     <td><?= $d->terdaftar ?></td>
 									<td>
 										<?php if ($d->is_activate == 1) { ?>
-											<a href="<?= base_url('aktivasi') ?>" class="span badge rounded-pill pill-badge-primary" disabled="disabled">Done</a>
+											<a href="#" class="span badge rounded-pill pill-badge-primary" disabled="disabled">Sudah Aktif</a>
 										<?php } ?>
 										<?php if ($d->is_activate == 0) { ?>
-										<a href="<?= base_url('aktivasi/' . $d->id_pengguna) ?>" class="span badge rounded-pill pill-badge-danger">Aktivasi</a>
+										<a href="<?= base_url('user/aktivasi/' . $d->id_pengguna) ?>" class="span badge rounded-pill pill-badge-info">Diperlukan Aktifasi</a>
 										<?php } ?>                               
 									</td>
 									<td>
-										<a href="<?= base_url('delete/' . $d->id_pengguna) ?>" class="span badge rounded-pill pill-badge-danger">Hapus</a>
+										<a href="<?= base_url('user/hapus/' . $d->id_pengguna) ?>" class="span badge rounded-pill pill-badge-danger">Hapus</a>
 									</td>
 									</tr>
                              <?php } ?>    

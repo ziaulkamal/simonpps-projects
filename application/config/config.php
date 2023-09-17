@@ -27,6 +27,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $config['base_url'] = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https": "http");
 $config['base_url'] .= "://".$_SERVER['HTTP_HOST'];
 $config['base_url'] .= str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME']);
+// $config['base_url'] = 'https://5591-180-241-47-147.ngrok-free.app/';
+
 
 /*
 |--------------------------------------------------------------------------
@@ -329,7 +331,7 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/userguide3/libraries/encryption.html
 |
 */
-$config['encryption_key'] = 'd1f5e878ca5e16121e05aa3e8864e69b';
+$config['encryption_key'] = '0b98b025ddef610777cc1607cf6e9aa9';
 
 /*
 |--------------------------------------------------------------------------
