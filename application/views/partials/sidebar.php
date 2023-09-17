@@ -3,7 +3,7 @@
 				<div class="sidebar-user text-center"><img class="img-90 rounded-circle"
 						src="<?= base_url('public/')?>images/dashboard/1.png" alt="">
 					<div class="badge-bottom"><span class="badge badge-primary">New</span></div>
-						<h6 class="mt-3 f-14 f-w-600"><?= ucfirst($this->session->userdata('user')); ?></h6>
+						<h6 class="mt-3 f-14 f-w-600"><?= ucfirst($this->session->userdata('nama_satker')); ?></h6>
 					</a>
 					<p class="mb-0 font-roboto"><?= ucfirst($this->session->userdata('level')); ?></p>
 				</div>
@@ -48,13 +48,18 @@
 										<?php } ?>
 									</ul>
 								</li>
-								<li class="dropdown"><a class="nav-link menu-title link-nav" href="<?= base_url('guest/arsip_berkas')?>"><i data-feather="message-square"></i><span>Pesan</span></a></li>
+								<?php if ($this->session->userdata('id_level') == 3) { ?>
+									<li class="dropdown"><a class="nav-link menu-title link-nav" href="<?= base_url('guest/daftar_pesan')?>"><i data-feather="message-square"></i><span>Pesan</span></a></li>
+								<?php } ?>
+								<?php if ($this->session->userdata('id_level') == 2) { ?>
+									<li class="dropdown"><a class="nav-link menu-title link-nav" href="<?= base_url('pps/daftar_pesan')?>"><i data-feather="message-square"></i><span>Pesan</span></a></li>
+								<?php } ?>
 								<!-- <li class="dropdown"><a class="nav-link menu-title link-nav" href=""><i data-feather="check-square"></i><span>Arsip</span></a></li> -->
 								
 								<?php if ($this->session->userdata('id_level') == 1 || $this->session->userdata('id_level') == 2 ) { ?>
 									<li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i data-feather="users"></i><span>Akun</span></a>
 										<ul class="nav-submenu menu-content">
-										<li><a href="<?= base_url('daftar_user')?>">Buat Akun</a></li>
+										<li><a href="<?= base_url('buat_user')?>">Buat Akun</a></li>
 										<li><a href="<?= base_url('list_user')?>">List Akun</a></li>
 										</ul>
 									</li>

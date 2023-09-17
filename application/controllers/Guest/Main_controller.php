@@ -394,7 +394,7 @@ class Main_controller extends CI_Controller {
                     'min_length' => '%s terlalu pendek !',
                     'max_length' => '%s terlalu panjang !',
                 ));
-                $this->form_validation->set_rules('deviasi', 'Deviasi', 'trim|required|min_length[2]|max_length[4]',array(
+                $this->form_validation->set_rules('deviasi', 'Deviasi', 'trim|required|min_length[1]|max_length[4]',array(
                     'required' => '%s wajib di isi !',
                     'min_length' => '%s terlalu pendek !',
                     'max_length' => '%s terlalu panjang !',

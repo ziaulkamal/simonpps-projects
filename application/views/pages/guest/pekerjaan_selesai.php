@@ -41,16 +41,16 @@
 									<td>
 										<?php if ($res->surveyIdST == NULL) { ?>
 										<a href="<?= base_url('#'); ?>" class="btn btn-outline-success btn-xs"
-											type="button" data-bs-toggle="modal" data-bs-target="#exampleModalmdo">Isi
+											type="button" data-bs-toggle="modal" data-bs-target="#m<?= substr($res->surveyIdST, 6, -4) ?>">Isi
 											Survey Sebelum Download</a>
 										<?php } else {if ($res->outputSts == 2) { ?>
-										<a href="<?= base_url('pps/pekerjaan/diselesaikan/'.$res->IN16ST); ?>"
-											class="btn btn-outline-info btn-air-info btn-xs">IN.16</a>
+										<a href="<?= base_url('public/lampiran/').$res->IN16ST; ?>"
+											target="_blank" class="btn btn-outline-info btn-air-info btn-xs">IN.16</a>
 										<?php }elseif($res->outputSts == 1) { ?>
-										<a href="<?= base_url('pps/pekerjaan/diselesaikan/'.$res->IN17ST); ?>"
-											class="btn btn-outline-info btn-air-info btn-xs">IN.17</a>
-										<a href="<?= base_url('pps/pekerjaan/diberhentikan/'.$res->IN2ST); ?>"
-											class="btn btn btn-outline-danger btn-air-danger btn-xs">IN.2</a>
+										<a href="<?= base_url('public/lampiran/').$res->IN17ST; ?>"
+											target="_blank" class="btn btn-outline-info btn-air-info btn-xs">IN.17</a>
+										<a href="<?= base_url('public/lampiran/').$res->IN2ST; ?>"
+											target="_blank" class="btn btn btn-outline-danger btn-air-danger btn-xs">IN.2</a>
 										<?php }}?>
 
 									</td>
@@ -68,7 +68,7 @@
 
 
 <?php foreach ($data as $res) { ?>
-<div class="modal fade" id="exampleModalmdo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="m<?= substr($res->surveyIdST, 6, -4) ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 	aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">

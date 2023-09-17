@@ -37,13 +37,13 @@ public function index($jumlah)
         $nil_kontrakPE = mt_rand(100000000, 1000000000);
 
         // Membuat nama_pkjPE dengan format yang diinginkan
-        $nama_pkjPE = 'Proyek Berkas'. $asalSatker .'untuk pembangunan di'.$lokasiPkjPE;
+        $nama_pkjPE = 'Proyek Berkas '. $asalSatker .' untuk pembangunan di '.$lokasiPkjPE;
 
         $dataPemohon = array(
             'id_pemohonPE'      => $uniquePe.$i,
             'status_idPE'       => '',
             'dokumen_idPE'      => $uniqueDok.$i,
-            'asal_satkerPE'     => $asalSatker,
+            'asal_satkerPE'     => 'guest',
             'nama_pkjPE'        => $nama_pkjPE,
             'sumber_pbyPE'      => 'APBN',
             'pagu_aggPE'        => $pagu_aggPE, // Menggunakan nilai acak untuk pagu_aggPE

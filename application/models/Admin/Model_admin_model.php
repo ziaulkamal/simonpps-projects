@@ -8,6 +8,11 @@ class Model_admin_model extends CI_Model
 
     }    
     
+    public function get_all_pengguna() 
+    {
+        return $this->db->get('tb_pengguna');
+    }
+    
     function insert_user($data) {
         $this->db->insert('tb_pengguna', $data);
         return;

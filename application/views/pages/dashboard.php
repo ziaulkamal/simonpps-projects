@@ -62,7 +62,7 @@
 					</div>
 				</div>
 			</div>
-                    <div class="col-sm-12 col-xl-6 box-col-6">
+             <div class="col-sm-12 col-xl-6 box-col-6">
                 <div class="card">
                   <div class="card-header pb-0">
                     <h5>Tingkat Survey Kepuasan </h5>
@@ -71,6 +71,6 @@
                     <div id="piecharts"></div>
                   </div>
                 </div>
-              </div>
+            </div>
 		</div>
 	</div>

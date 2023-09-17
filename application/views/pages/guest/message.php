@@ -36,7 +36,7 @@
 									<!-- <td><?= $d->asal_satkerPE ?></td> -->
 									<td><?= $d->nama_pkjPE; ?></td>
 
-									<td><?= 'Dokumen '.ucwords(($d->jns_dokDO))?></td>
+									<td><a class="btn btn-success btn-air-success btn-xs"><?= 'Dokumen '.ucwords(($d->jns_dokDO))?></a></td>
 									<td>
 										<?php if ($d->jns_dokDO == 'diterima') { ?>
 										<a href="<?= base_url('public/lampiran/').$d->IN13DO; ?>" target="_blank"

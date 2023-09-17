@@ -338,7 +338,7 @@ class Main_controller extends CI_Controller {
 
     function pekerjaan_done() {
         $load = $this->pps->getPekerjaanDone()->result();
-
+        
         $data = array(
             'title'         => 'Daftar Pekerjaan Selesai',
             'pageTitle'     => 'Daftar Pekerjaan Selesai',
@@ -348,6 +348,18 @@ class Main_controller extends CI_Controller {
             // 'dataTrack'     => $load_progress
         );    
 
+        $this->load->view('main', $data);
+    }
+
+    function list_message() {
+        $load = $this->pps->getSurvey();
+        $data = array(
+            'title'     => 'Survey Kepuasan',
+            'pageTitle' => 'Survey Kepuasan',
+            'pages'     => 'pages/pps/message',
+            'dataTable' => TRUE,
+            'data'      => $load
+        );
         $this->load->view('main', $data);
     }
 

@@ -79,14 +79,17 @@
                   <div class="txt-danger"><?= form_error('user'); ?></div>
                 </div>
                 <div class="form-group">
-                  <label>Password</label>
-                  <div class="input-group"><span class="input-group-text"><i class="icon-lock"></i></span>
-                  <input class="form-control text-dark" type="password" id="pass" name="pass" value="<?= set_value('pass'); ?>"  autocomplete="off">
-                  <div class="show-hide"><span class="show"></span></div>
+                    <label>Password</label>
+                    <div class="input-group"><span class="input-group-text"><i class="icon-lock"></i></span>
+                    <input class="form-control text-dark" type="password" id="pass" name="pass" value="<?= set_value('pass'); ?>"  autocomplete="off">
+                    <div class="show-hide"><span class="show"></span></div>
+                  </div>
+                  <div class="txt-danger"><?= form_error('pass'); ?></div>
                 </div>
-                <div class="txt-danger"><?= form_error('pass'); ?></div>
+                <div class="form-group mb-2">
+                  <a class="link" href="<?= base_url('forget_password'); ?>">Forgot password?</a>
                 </div>
-                <div class="form-group">
+                <div class="form-group mt-5">
                   <button class="btn btn-primary btn-block" type="submit">Log in</button>
                 </div>
                 <p>Belum punya akun ?<a class="ms-2" href="<?= base_url('register')?>">Register</a></p>

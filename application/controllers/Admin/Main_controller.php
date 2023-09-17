@@ -11,10 +11,13 @@ class Main_controller extends CI_Controller {
     }
 
     function view_user() {
+        $load = $this->admin->get_all_pengguna()->result();
         $data = array(
             'title'         => 'Data User',
             'pageTitle'     => 'Data Seluruh User',
             'pages'         => 'pages/admin/List_akun',
+            'data'          => $load,
+            'dataTable'     => TRUE
         );
 
         $this->load->view('main', $data);   
@@ -37,9 +40,7 @@ class Main_controller extends CI_Controller {
         $this->_rules('create_user');
         
         if ($this->form_validation->run() == FALSE) {
-           
             $this->create_user();
-            
         } else {
             $data = array(
                 'nama_satker'       => strtolower($this->input->post('nama_satker', TRUE)),	

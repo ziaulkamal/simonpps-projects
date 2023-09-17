@@ -104,11 +104,11 @@
 								</tr>
 								<tr>
 									<td class="f-w-700 txt-dark" style="width:50%">Pagu Anggaran</td>
-									<td class="f-w-600 txt-dark">: <?= $d->pagu_aggPE; ?></td>
+									<td class="f-w-600 txt-dark">: <?= "Rp " . number_format($d->pagu_aggPE,2,',','.'); ?></td>
 								</tr>
 								<tr>
 									<td class="f-w-700 txt-dark" style="width:50%">Nilai Kontrak</td>
-									<td class="f-w-600 txt-dark">: <?= $d->nil_kontrakPE; ?></td>
+									<td class="f-w-600 txt-dark">: <?= "Rp " . number_format($d->nil_kontrakPE,2,',','.'); ?></td>
 								</tr>
 								<tr>
 									<td class="f-w-700 txt-dark" style="width:50%">Jangka Waktu Dimulai</td>
@@ -124,21 +124,18 @@
 								</tr>
 								<tr>
 									<td class="f-w-700 txt-dark" style="width:50%">Timeline Pelaksanaan Tahapan</td>
-									<td class="f-w-600 txt-dark"><a href="" data-bs-toggle="tooltip"
-											data-bs-placement="right" title="Download File">:
-											<?= pathinfo($d->timtah_pelakPE, PATHINFO_BASENAME); ?></a></td>
+									<td class="f-w-600 txt-dark"><a href="<?= base_url('public/lampiran/').$d->timtah_pelakPE; ?>" class="btn btn-outline-success btn-air-success btn-xs" data-bs-toggle="tooltip" data-bs-placement="right" title="Download File"><?= pathinfo($d->timtah_pelakPE, PATHINFO_BASENAME); ?></a></td>
+
 								</tr>
 								<tr>
 									<td class="f-w-700 txt-dark" style="width:50%">Surat Permohonan</td>
-									<td class="f-w-600 txt-dark"><a href="" data-bs-toggle="tooltip"
-											data-bs-placement="right" title="Download File">:
-											<?= pathinfo($d->s_permohonanPE, PATHINFO_BASENAME); ?></a></td>
+									<td class="f-w-600 txt-dark"><a href="<?= base_url('public/lampiran/').$d->s_permohonanPE; ?>" class="btn btn-outline-success btn-air-success btn-xs" data-bs-toggle="tooltip" data-bs-placement="right" title="Download File"><?= pathinfo($d->s_permohonanPE, PATHINFO_BASENAME); ?></a></td>
+
 								</tr>
 								<tr>
 									<td class="f-w-700 txt-dark" style="width:50%">Surat Keputusan Proyek Strategis</td>
-									<td class="f-w-600 txt-dark"><a href="" data-bs-toggle="tooltip"
-											data-bs-placement="right" title="Download File">:
-											<?= pathinfo($d->skp_straPE, PATHINFO_BASENAME); ?></a></td>
+									<td class="f-w-600 txt-dark"><a href="<?= base_url('public/lampiran/').$d->skp_straPE; ?>" class="btn btn-outline-success btn-air-success btn-xs" data-bs-toggle="tooltip" data-bs-placement="right" title="Download File"><?= pathinfo($d->skp_straPE, PATHINFO_BASENAME); ?></a></td>
+
 								</tr>
 								<tr>
 									<td class="f-w-700 txt-dark" style="width:50%">Tahapan Berjalan</td>

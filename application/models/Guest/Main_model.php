@@ -86,15 +86,16 @@ class Main_model extends CI_Model
              $this->db->insert('tb_progress_pekerjaan', $dataOne);  
         }else {
              $setDatas = array(
-                'rcn_progPR'        => $result->rcn_progPR + $dataOne['rcn_progPR'],	
-                'rl_progPR'         => $result->rl_progPR + $dataOne['rl_progPR'],	
-                'deviasiPR'         => $result->deviasiPR + $dataOne['deviasiPR'],	
-                'rl_keuanPR'        => $dataOne['rl_keuanPR']+ $result->rl_keuanPR,	
+                'rcn_progPR'        => $dataOne['rcn_progPR'],	
+                'rl_progPR'         => $dataOne['rl_progPR'],	
+                'deviasiPR'         => $dataOne['deviasiPR'],	
+                'rl_keuanPR'        => $dataOne['rl_keuanPR'],	
                 'lp_bulanPR'        => $dataOne['lp_bulanPR'],		
                 'waktuPR'           => $dataOne['waktuPR'],
                 'it_pkjPR'          => $dataOne['it_pkjPR'],	
                 'updateDatePR'      => $dataOne['updateDatePR'],	
             );
+            
             $this->db->where('pemohon_idPR	', $dataOne['pemohon_idPR']);	
             $this->db->update('tb_progress_pekerjaan', $setDatas);
         }
@@ -113,11 +114,18 @@ class Main_model extends CI_Model
             'rcnProgress'           => $dataOne['rcn_progPR'],
             'rlProgress'            => $dataOne['rl_progPR'],
             'deviasiProgress'       => $dataOne['deviasiPR'],
+            'rlKeuangan'            => $dataOne['rl_keuanPR'],
             'lpBulanan'             => $dataOne['lp_bulanPR'],
             'fotoPekerjaan'         => $dataOne['it_pkjPR'],
             'timeDateTrack'         => $dataOne['waktuPR'],
             'updateDateTrack'       => date('Y-m-d')
         );
+
+        
+        // echo "<pre>";
+        // var_dump($dataTwo);
+        // echo "</pre>";
+        // die();
         $this->db->insert('tb_trackprogress', $dataTwo);
 
 

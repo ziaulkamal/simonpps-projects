@@ -65,11 +65,11 @@
                   <div class="txt-danger"><?= form_error('nama_satker'); ?></div>
                 </div>
                 <div class="form-group">
-                  <label>Username</label>
-                  <div class="input-group"><span class="input-group-text"><i class="icon-user"></i></span>
-                    <input class="form-control" type="text" name="user" required>
-                  </div>
-                  <div class="txt-danger"><?= form_error('user'); ?></div>
+                  <label>Email</label>
+                    <div class="input-group"><span class="input-group-text"><i class="icon-user"></i></span>
+                      <input class="form-control" type="text" name="email" required>
+                    </div>
+                  <div class="txt-danger"><?= form_error('email'); ?></div>
                 </div>
                 <div class="form-group">
                   <label>Password</label>
@@ -88,7 +88,7 @@
                 <div class="form-group">
                   <button class="btn btn-primary btn-block" type="submit">Daftar Akun</button>
                 </div>
-                <p>Sudah punya akun ?<a class="ms-2" href="<?= base_url('login')?>">Login</a></p>
+                <p>Sudah punya akun ?<a class="ms-2" href="<?= base_url('auth')?>">Login</a></p>
               </form>
             </div>
           </div>

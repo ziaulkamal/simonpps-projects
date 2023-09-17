@@ -3,6 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['default_controller'] = 'Main';
 
+$route['beranda'] = 'Main/landingPage';
+
 // admin user 
 $route['list_user']                                 =  'Admin/Main_controller/view_user';
 $route['buat_user']                                 =  'Admin/Main_controller/create_user';
@@ -13,6 +15,12 @@ $route['user/hapus/(:any)']                         = 'Admin/Main_controller/del
 // auth
 $route['auth']                                      = 'Auth/login';
 $route['auth/login']                                = 'Auth/login_process';
+
+$route['forget_password']                           = 'Auth/forgetPass';
+$route['forget_password/process']                   = 'Auth/forget_pass_process';
+$route['register']                                  = 'Auth/register';
+$route['auth/register']                             = 'Auth/proses_register';
+
 $route['auth/logout']                               = 'Auth/logout';
 $route['clear_db']                                  = 'Auth/clear_db';
 
@@ -28,8 +36,8 @@ $route['guest/pekerjaan/create/(:any)']             = 'Guest/Main_controller/cre
 $route['guest/pekerjaan/process/(:any)']            = 'Guest/Main_controller/progress_process/$1';
 
 
-$route['guest/arsip_berkas']                        = 'Guest/Main_controller/list_message/';
-$route['guest/pekerjaan/selesai']                   = 'Guest/Main_controller/pekerjaan_done/';
+$route['guest/daftar_pesan']                        = 'Guest/Main_controller/list_message';
+$route['guest/pekerjaan/selesai']                   = 'Guest/Main_controller/pekerjaan_done';
 $route['guest/pekerjaan/sendSurvey/(:any)']         = 'Guest/Main_controller/sendSurvey/$1';
 
 
@@ -48,11 +56,23 @@ $route['pps/pekerjaan/diselesaikan/(:any)']         = 'PPS/Main_controller/compl
 $route['pps/pekerjaan/diberhentikan/(:any)']        = 'PPS/Main_controller/incomplete_pekerjaan/$1';
 $route['pps/pekerjaan/diselesaikan/process/(:any)'] = 'PPS/Main_controller/process_complete/$1';
 $route['pps/pekerjaan/diberhentikan/process/(:any)']= 'PPS/Main_controller/process_incomplete/$1';
-
 $route['pps/pekerjaan/selesai']                     = 'PPS/Main_controller/pekerjaan_done/';
-
-
+$route['pps/daftar_pesan']                          = 'PPS/Main_controller/list_message';
 $route['dummy/(:any)']                              = 'Seeder/index/$1';
+
+
+//  other
+// $route['export_data']                                 = 'Export_pdf/exportData';
+$route['export']                                 = 'PPS/Cetak/index';
+
+
+
+
+
+
+// $route['pps/berkas_first/(:any)']                   = 'PPS/Main_controller/';
+// $route['pps/berkas_second/(:any)']                  = 'PPS/Main_controller/';
+// $route['pps/berkas_third/(:any)']                   = 'PPS/Main_controller/';
 
 // // satker or guest
 // $route['daftar_permohonan'] = 'View_controller/guest_view';
@@ -79,7 +99,7 @@ $route['dummy/(:any)']                              = 'Seeder/index/$1';
 // $route['download/(:any)'] = 'Update_controller/download_berkas/$1';
 
 
-// // admin
+// admin
 // $route['daftar_user'] = 'Insert_controller/create_user';
 // $route['list_user'] = 'View_controller/list_user';
 // $route['admin/go/process'] = 'Insert_controller/process_create_user';

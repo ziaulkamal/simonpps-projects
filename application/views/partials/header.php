@@ -42,7 +42,6 @@
 	<link id="color" rel="stylesheet" href="<?= base_url('public/')?>css/color-1.css" media="screen">
 	<!-- Responsive css-->
 	<link rel="stylesheet" type="text/css" href="<?= base_url('public/')?>css/responsive.css">
-
 	<?php if (isset($dataTable)) { ?>
 	<link rel="stylesheet" type="text/css" href="<?= base_url('public/')?>css/datatables.css">
 	<?php }?>

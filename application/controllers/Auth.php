@@ -138,6 +138,95 @@ class Auth extends CI_Controller {
         
     }  
 
+    /**
+     * register
+     * halaman register
+     * @return void
+     */
+    function register() 
+    {
+        $data = array(
+            'title' => 'Registrasi',
+            'action' => 'auth/register'
+        );
+
+        $this->load->view('pages/auth/register', $data);
+        
+    }
+    
+    /**
+     * proses_register
+     * fungsi proses register
+     * @return void
+     */
+    public function proses_register()
+    {
+        $this->rules();
+        
+        if ($this->form_validation->run() == TRUE) {
+        
+            $data = array(
+                'nama_satker'        => strtolower($this->input->post('nama_satker', TRUE)),
+                'user'               => strtolower($this->input->post('email', TRUE)),
+                'pass'               => password_hash($this->input->post('pass',TRUE),PASSWORD_DEFAULT), 
+                'is_activate'        => 0,
+                'level'              => 'guest',
+                'terdaftar'          => date('Y-m-d H:i:s'),
+            );
+
+            $this->auth->insert_pengguna($data);
+            $this->session->set_flashdata('success', '<strong>Akun berhasil dibuat! </strong> Hubungi admin untuk mengaktivasi akun');
+            redirect('auth');
+            
+        } else {
+            redirect('register');
+        }
+        
+    }
+
+    public function forgetPass()
+    {
+        $data = array(
+            'title' => 'Forget Password',
+            'action'   => 'forget_password/process'
+        );
+
+        $this->load->view('pages/auth/forget-pass', $data);
+    }
+
+    function forget_pass_process() {
+        $email = $this->input->post('email');
+        $findUser = $this->auth->findUser($email);
+        $validasi = $this->auth->validasiRecover($email);
+        
+        if ($findUser->num_rows() == 1) {
+
+            if ($validasi == 0) {
+                $this->auth->setLostPass($email);
+                echo "Permintaan Berhasil!";
+
+            } else {
+                echo "Anda sudah melakukan permintaan, Cek Email!";
+            }
+
+        } else {
+            echo "pengguna ini tidak di temukan";
+        }
+
+        
+    }
+
+
+    
+
+    function rules()
+    {
+        $this->form_validation->set_rules('nama_satker', 'Nama satuan kerja', 'trim|required|min_length[5]|max_length[50]',array('required' => '%s wajib di isi !','min_length' => '%s terlalu pendek !','max_length' => '%s terlalu panjang !',));
+        $this->form_validation->set_rules('email', 'Email', 'trim|required|min_length[5]|max_length[30]',array('required' => '%s wajib di isi !','min_length' => '%s terlalu pendek !','max_length' => '%s terlalu panjang !',));
+        $this->form_validation->set_rules('pass', 'Pass', 'trim|required|min_length[5]|max_length[12]',array('required' => '%s wajib di isi !','min_length' => '%s terlalu pendek !','max_length' => '%s terlalu panjang !',));
+
+    }
+
 }
 
 /* End of file Auth.php and path \application\controllers\Auth.php */

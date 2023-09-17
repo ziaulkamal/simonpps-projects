@@ -88,7 +88,7 @@
 									<td class="f-w-600 txt-dark">: <?= 'Rp.'.number_format($d->rl_keuanPR,2,',','.'); ?></td>
 								</tr>
 								<tr>
-									<td class="f-w-700 txt-dark" style="width:50%">Realisasi Keuangan</td>
+									<td class="f-w-700 txt-dark" style="width:50%">Laporan Bulanan</td>
 									<td class="f-w-600 txt-dark">: <?= $d->lp_bulanPR; ?></td>
 								</tr>
 								<tr>
@@ -162,6 +162,7 @@
 					<th scope="col">Rencana</th>
 					<th scope="col">Realisasi</th>
 					<th scope="col">Deviasi</th>
+					<th scope="col">Realisasi Keuangan</th>
 					<th scope="col">Foto Pekerjaan</th>
 					<th scope="col">Laporan Bulanan</th>
 					<th scope="col">Tanggal Update</th>
@@ -174,6 +175,7 @@
 							<td><?= $datas->rcnProgress ?>%</td>
 							<td><?= $datas->rlProgress ?>%</td>
 							<td><?= $datas->deviasiProgress ?>%</td>
+							<td><?= $datas->rlKeuangan ?></td>
 							<td>
 								<a class="btn btn-pill btn-outline-primary btn-air-primary btn-xs" href="<?= base_url('public/lampiran/').$datas->fotoPekerjaan ?>" target="_blank">Lihat Foto</a>	
 							</td>
