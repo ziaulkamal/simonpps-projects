@@ -7,17 +7,17 @@ class Auth extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('Auth_model', 'auth');
-        if (!$this->session->userdata() && $this->session->userdata('level') != 'guest' || $this->session->userdata('level') != 'seksi-pps' && $this->auth->checkUser( $this->session->userdata('mail') != 1)) {
-            $this->session->set_flashdata('err', 'User Atau Password Salah');
-            redirect('auth','refresh');
-            
-        }
         
     }
 
-    public function index()
-    {
 
+    public function get_client_ip() {
+
+		$url = 'https://myipv4.p1.opendns.com/get_my_ip';
+		$response = file_get_contents($url);
+		$data = json_decode($response, true);
+
+        return $data['ip'];
     }
 
     function login() 
@@ -227,7 +227,7 @@ class Auth extends CI_Controller {
         $request = $this->auth->checkUserByEmail($mail)->row();
 
         $check          = $getData->num_rows();
-        $client_ip      = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        $client_ip      = $this->get_client_ip();
         if($client_ip == $getData->row()->ip_addr){
                     
             if($check == 1){

@@ -1,2 +1,5 @@
 vendor/
-lampiran/*
+lampiran/
+lampiran/*.pdf
+composer.lock
+application/config/database.*
