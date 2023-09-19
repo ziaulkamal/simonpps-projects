@@ -7,17 +7,17 @@ class Auth extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('Auth_model', 'auth');
-        if (!$this->session->userdata() && $this->session->userdata('level') != 'guest' || $this->session->userdata('level') != 'seksi-pps' && $this->auth->checkUser( $this->session->userdata('mail') != 1)) {
-            $this->session->set_flashdata('err', 'User Atau Password Salah');
-            redirect('auth','refresh');
-            
-        }
         
     }
 
-    public function index()
-    {
 
+    public function get_client_ip() {
+
+		$url = 'https://myipv4.p1.opendns.com/get_my_ip';
+		$response = file_get_contents($url);
+		$data = json_decode($response, true);
+
+        return $data['ip'];
     }
 
     function login() 
@@ -137,6 +137,147 @@ class Auth extends CI_Controller {
         redirect('/','refresh');
         
     }  
+
+    /**
+     * register
+     * halaman register
+     * @return void
+     */
+    function register() 
+    {
+        $data = array(
+            'title' => 'Registrasi',
+            'action' => 'auth/register'
+        );
+
+        $this->load->view('pages/auth/register', $data);
+        
+    }
+    
+    /**
+     * proses_register
+     * fungsi proses register
+     * @return void
+     */
+    public function proses_register()
+    {
+        $this->rules();
+        
+        if ($this->form_validation->run() == TRUE) {
+        
+            $data = array(
+                'nama_satker'        => strtolower($this->input->post('nama_satker', TRUE)),
+                'user'               => strtolower($this->input->post('email', TRUE)),
+                'pass'               => password_hash($this->input->post('pass',TRUE),PASSWORD_DEFAULT), 
+                'is_activate'        => 0,
+                'level'              => 'guest',
+                'terdaftar'          => date('Y-m-d H:i:s'),
+            );
+
+            $this->auth->insert_pengguna($data);
+            $this->session->set_flashdata('success', '<strong>Akun berhasil dibuat! </strong> Hubungi admin untuk mengaktivasi akun');
+            redirect('auth');
+            
+        } else {
+            redirect('register');
+        }
+        
+    }
+
+    public function forgetPass()
+    {
+        $data = array(
+            'title' => 'Forget Password',
+            'action'   => 'forget_password/process'
+        );
+
+        $this->load->view('pages/auth/forget-pass', $data);
+    }
+
+    function forget_pass_process() {
+        $email = $this->input->post('email');
+        $findUser = $this->auth->findUser($email);
+        $validasi = $this->auth->validasiRecover($email);
+        
+        if ($findUser->num_rows() == 1) {
+
+            if ($validasi == 0) {
+                $this->auth->setLostPass($email);
+                $this->session->set_flashdata('success', '<strong>Cek Email! </strong> Permintaan reset password sudah dikirimkan');
+                redirect('auth');
+                // echo "Permintaan Berhasil!";
+
+            } else {
+                $this->session->set_flashdata('err', '<strong>Gagal! </strong> Anda sudah melakukan permintaan, Cek Email!<br />Jika anda ingin melakukan pengajuan kembali harap tunggu 30 menit kedepan untuk pengajuan ulang!');
+                redirect('auth');
+            }
+
+        } else {
+                $this->session->set_flashdata('err', '<strong>Gagal! </strong> Email ini tidak ditemukan');
+                redirect('auth');
+        }
+
+        
+    }
+    
+    function action_reset($token) {
+        error_reporting(0);
+        $getData = $this->auth->checkToken($token);
+        $mail = $getData->row()->mailRec;
+        $request = $this->auth->checkUserByEmail($mail)->row();
+
+        $check          = $getData->num_rows();
+        $client_ip      = $this->get_client_ip();
+        if($client_ip == $getData->row()->ip_addr){
+                    
+            if($check == 1){
+                
+                $data = array(
+                    'title'     => 'Set Password Baru',
+                    'action'    => 'success_reset',
+                    'data'      => $getData->row(),
+                );
+    
+                $this->load->view('pages/auth/form_reset', $data);
+            }else {
+                 $this->session->set_flashdata('err', '<strong>Gagal! </strong> Tautan sudah kadaluarsa');
+                redirect('auth');
+            }
+        }else{
+                $this->session->set_flashdata('err', '<strong>Gagal! </strong> Tautan tidak Valid');
+                redirect('auth');
+        }
+    }
+
+
+    function updateRessPass(){
+        error_reporting(0);
+        $time       = $this->input->post('time');
+        $setMail    = $this->input->post('user');
+        $token      = md5($setMail.$time);
+        $getData    = $this->auth->checkToken($token)->row();   
+        if($getData != NULL || $getData->token == $token){
+                $data['pass'] = password_hash($this->input->post('pass',TRUE),PASSWORD_DEFAULT);
+                $this->auth->newPassword($setMail, $data, $time);
+                $this->session->set_flashdata('success', '<strong>Berhasil! </strong> Password berhasil dirubah !');
+                redirect('auth');
+            }else{
+                $this->session->set_flashdata('err', '<strong>Gagal! </strong> Tautan tidak Valid');
+                redirect('auth');
+            }  
+    }
+    
+    
+
+    
+
+    function rules()
+    {
+        $this->form_validation->set_rules('nama_satker', 'Nama satuan kerja', 'trim|required|min_length[5]|max_length[50]',array('required' => '%s wajib di isi !','min_length' => '%s terlalu pendek !','max_length' => '%s terlalu panjang !',));
+        $this->form_validation->set_rules('email', 'Email', 'trim|required|min_length[5]|max_length[30]',array('required' => '%s wajib di isi !','min_length' => '%s terlalu pendek !','max_length' => '%s terlalu panjang !',));
+        $this->form_validation->set_rules('pass', 'Pass', 'trim|required|min_length[5]|max_length[12]',array('required' => '%s wajib di isi !','min_length' => '%s terlalu pendek !','max_length' => '%s terlalu panjang !',));
+
+    }
 
 }
 

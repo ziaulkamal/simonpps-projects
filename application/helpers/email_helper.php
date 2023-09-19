@@ -19,7 +19,7 @@ function sendMail($to, $body, $subject)
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
         $mail->Username   = 'alul.akhri@gmail.com';
-        $mail->Password   = 'ysfnvwpdghqtkzzw';
+        $mail->Password   = 'xnlznklnpjvvbnbo';
         $mail->Port       = 587;
 
         $mail->setFrom('alul.akhri@gmail.com', 'SIMON PPS');

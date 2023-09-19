@@ -36,7 +36,7 @@
 						<div class="row">
 							<div class="col-md-4">
 								<label class="form-label f-w-700 txt-dark" for="">Deviasi <span class="txt-danger">*% (persentase progress setiap aktivitas)</span></label>
-								<input class="form-control persen" name="deviasi" id="deviasi" type="text" value="<?= set_value('deviasi'); ?>">
+								<input class="form-control " name="deviasi" id="deviasi" type="number" value="<?= set_value('deviasi'); ?>">
 								<div class="txt-danger"><?= form_error('deviasi'); ?></div>
 							</div>
 							<div class="col-md-4">

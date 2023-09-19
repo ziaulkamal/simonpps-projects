@@ -159,10 +159,18 @@ class Main_model extends CI_Model
     function getPekerjaanDone() {
         $this->db->join('tb_pemohon', 'tb_pemohon.status_idPE = tb_status.id_statusST');
         $this->db->join('tb_dokumen', 'tb_dokumen.id_dokumenDO = tb_pemohon.dokumen_idPE');
-        $this->db->where('tb_dokumen.jns_dokDO', 'selesai');
-        
-        
+        $this->db->where('tb_dokumen.jns_dokDO', 'selesai');        
         return $this->db->get('tb_status');
+    }
+
+    function getSurvey() {
+        $this->db->select('*');
+        $this->db->from('tb_survey');
+        $this->db->join('tb_status', 'tb_survey.statusIdS = tb_status.id_statusST');
+        $this->db->join('tb_pemohon', 'tb_status.id_statusST = tb_pemohon.status_idPE');
+        $query = $this->db->get();
+        return $query->result();
+        
     }
 }
 

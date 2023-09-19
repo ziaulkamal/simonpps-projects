@@ -29,6 +29,7 @@ $config['base_url'] .= "://".$_SERVER['HTTP_HOST'];
 $config['base_url'] .= str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME']);
 // $config['base_url'] = 'https://5591-180-241-47-147.ngrok-free.app/';
 
+
 /*
 |--------------------------------------------------------------------------
 | Index File
@@ -387,11 +388,11 @@ $config['encryption_key'] = '0b98b025ddef610777cc1607cf6e9aa9';
 | except for 'cookie_prefix' and 'cookie_httponly', which are ignored here.
 |
 */
-$config['sess_driver'] = 'files';
-$config['sess_cookie_name'] = 'simon_sessions__';
+$config['sess_driver'] = 'database';
+$config['sess_cookie_name'] = 'ci_sessions';
 $config['sess_samesite'] = 'Lax';
 $config['sess_expiration'] = 7200;
-$config['sess_save_path'] = NULL;
+$config['sess_save_path'] = 'ci_sessions';
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;
@@ -418,55 +419,14 @@ $config['cookie_path']		= '/';
 $config['cookie_secure']	= FALSE;
 $config['cookie_httponly'] 	= FALSE;
 $config['cookie_samesite'] 	= 'Lax';
-
-/*
-|--------------------------------------------------------------------------
-| Standardize newlines
-|--------------------------------------------------------------------------
-|
-| Determines whether to standardize newline characters in input data,
-| meaning to replace \r\n, \r, \n occurrences with the PHP_EOL value.
-|
-| WARNING: This feature is DEPRECATED and currently available only
-|          for backwards compatibility purposes!
-|
-*/
 $config['standardize_newlines'] = FALSE;
-
-/*
-|--------------------------------------------------------------------------
-| Global XSS Filtering
-|--------------------------------------------------------------------------
-|
-| Determines whether the XSS filter is always active when GET, POST or
-| COOKIE data is encountered
-|
-| WARNING: This feature is DEPRECATED and currently available only
-|          for backwards compatibility purposes!
-|
-*/
 $config['global_xss_filtering'] = TRUE;
-
-/*
-|--------------------------------------------------------------------------
-| Cross Site Request Forgery
-|--------------------------------------------------------------------------
-| Enables a CSRF cookie token to be set. When set to TRUE, token will be
-| checked on a submitted form. If you are accepting user data, it is strongly
-| recommended CSRF protection be enabled.
-|
-| 'csrf_token_name' = The token name
-| 'csrf_cookie_name' = The cookie name
-| 'csrf_expire' = The number in seconds the token should expire.
-| 'csrf_regenerate' = Regenerate token on every submission
-| 'csrf_exclude_uris' = Array of URIs which ignore CSRF checks
-*/
 $config['csrf_protection'] = TRUE;
-$config['csrf_token_name'] = 'simons';
-$config['csrf_cookie_name'] = 'csrf_simons';
+$config['csrf_token_name'] = 'csrf_token';
+$config['csrf_cookie_name'] = 'csrf_cookie';
 $config['csrf_expire'] = 7200;
 $config['csrf_regenerate'] = TRUE;
-$config['csrf_exclude_uris'] = array();
+$config['csrf_exclude_uris'] = array('success_reset','action/reset');
 
 /*
 |--------------------------------------------------------------------------

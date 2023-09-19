@@ -10,8 +10,8 @@
 	<meta name="keywords"
 		content="admin template, viho admin template, dashboard template, flat admin template, responsive admin template, web app">
 	<meta name="author" content="pixelstrap">
-	<link rel="icon" href="<?= base_url('public/')?>images/favicon.png" type="image/x-icon">
-	<link rel="shortcut icon" href="<?= base_url('public/')?>images/favicon.png" type="image/x-icon">
+	<link rel="icon" href="<?= base_url('public/')?>images/logo/logo-kejati.png" type="image/x-icon">
+	<link rel="shortcut icon" href="<?= base_url('public/')?>images/logo/logo-kejati.png" type="image/x-icon">
 	<title><?= $title ?></title>
 	<!-- Google font-->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
@@ -42,7 +42,6 @@
 	<link id="color" rel="stylesheet" href="<?= base_url('public/')?>css/color-1.css" media="screen">
 	<!-- Responsive css-->
 	<link rel="stylesheet" type="text/css" href="<?= base_url('public/')?>css/responsive.css">
-
 	<?php if (isset($dataTable)) { ?>
 	<link rel="stylesheet" type="text/css" href="<?= base_url('public/')?>css/datatables.css">
 	<?php }?>
