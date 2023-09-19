@@ -7,8 +7,8 @@
     <meta name="description" content="viho admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, viho admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="pixelstrap">
-    <link rel="icon" href="<?= base_url('public/'); ?>images/favicon.png" type="image/x-icon">
-    <link rel="shortcut icon" href="<?= base_url('public/'); ?>images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="<?= base_url('public/'); ?>images/logo/logo-kejati.png" type="image/x-icon">
+    <link rel="shortcut icon" href="<?= base_url('public/'); ?>images/logo/logo-kejati.png" type="image/x-icon">
     <title><?= $title; ?></title>
     <!-- Google font-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -50,11 +50,10 @@
           <div class="custom-container">
             <div class="row">
               <div class="col-12">
-                <nav class="navbar navbar-light p-0" id="navbar-example2"><a class="navbar-brand" href="javascript:void(0)"> <img class="img-fluid" src="<?= base_url('public/'); ?>images/logo/logo.png" alt=""></a>
+                <nav class="navbar navbar-light p-0" id="navbar-example2"><a class="navbar-brand" href="javascript:void(0)"></a>
                   <ul class="landing-menu nav nav-pills">
                     <li class="nav-item menu-back">back<i class="fa fa-angle-right"></i></li>
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link">Data</a></li>
                   </ul>
                   <div class="buy-block"><a class="btn-landing" href="<?= base_url('auth/login'); ?>" target="_blank">Login</a>
                     <div class="toggle-menu"><i class="fa fa-bars"></i></div>
@@ -72,7 +71,7 @@
               <div class="col-12">
                 <div class="landing-home-contain">
                   <div>
-                    <div class="landing-logo"><img class="img-fluid" src="<?= base_url('public/'); ?>images/landing/landing-home/logo.png" alt=""></div>
+                    <div class="landing-logo"><img src="<?= base_url('public/'); ?>images/landing/landing-home/2.png" alt=""></div>
                     <h2>Pengamanan <span>Pembangunan Strategis</span></h2>
                     <h6>Kejaksaan Tinggi Aceh </h6>
                     <p>Sistem monitoring pengamanan pembangunan strategis (simon-pps) merupakan sebuah sistem informasi yang bertujuan untuk memudahkan pihak kejaksaan tinggi aceh dengan dinas-dinas aceh dalam melakukan prosedur pengamanan pembangunan</p>
@@ -94,10 +93,10 @@
                 <div><img class="img-fluid img1 v-align-t m-t-30" src="<?= base_url('public/'); ?>images/landing/landing-home/home-position/img-1.jpg" alt=""><img class="img-fluid img2 v-align-t" src="<?= base_url('public/'); ?>images/landing/landing-home/home-position/img-2.jpg" alt=""><img class="img-fluid img3 v-align-b" src="<?= base_url('public/'); ?>images/landing/landing-home/home-position/img-3.jpg" alt=""><img class="img-fluid img4 v-align-b" src="<?= base_url('public/'); ?>images/landing/landing-home/home-position/img-4.jpg" alt=""></div>
               </li>
               <li>
-                <div><img class="img-fluid img5" src="<?= base_url('public/'); ?>images/landing/landing-home/home-position/dashboard.png" alt=""><img class="img-fluid img6 v-align-c" src="<?= base_url('public/'); ?>images/landing/landing-home/home-position/img-6.jpg" alt=""></div>
+                <div><img class="img-fluid img5" src="<?= base_url('public/'); ?>images/landing/landing-home/home-position/img-7.jpg" alt=""><img class="img-fluid img6 v-align-c" src="<?= base_url('public/'); ?>images/landing/landing-home/home-position/img-6.jpg" alt=""></div>
               </li>
               <li><img class="img-fluid img-parten bottom-parten" src="<?= base_url('public/'); ?>images/landing/landing-home/home-position/img-parten.png" alt="">
-                <div><img class="img-fluid img7 v-align-t" src="<?= base_url('public/'); ?>images/landing/landing-home/home-position/img-7.jpg" alt=""><img class="img-fluid img8 v-align-t" src="<?= base_url('public/'); ?>images/landing/landing-home/home-position/img-8.jpg" alt=""><img class="img-fluid img9" src="<?= base_url('public/'); ?>images/landing/landing-home/home-position/img-9.jpg" alt=""></div>
+                <div><img class="img-fluid img8 v-align-t" src="<?= base_url('public/'); ?>images/landing/landing-home/home-position/img-8.jpg" alt=""><img class="img-fluid img9" src="<?= base_url('public/'); ?>images/landing/landing-home/home-position/img-9.jpg" alt=""></div>
               </li>
             </ul>
           </div>
@@ -160,7 +159,6 @@
           <div class="custom-container">
             <div class="row">
               <div class="col-md-6 col-sm-2">
-                <div class="footer-contain"><img class="img-fluid" src="<?= base_url('public/'); ?>images/logo/logo.png" alt=""></div>
               </div>
               <div class="col-md-6 col-sm-10">
                 <div class="footer-contain">

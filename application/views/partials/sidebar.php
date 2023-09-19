@@ -1,8 +1,7 @@
 			<!-- Page Sidebar Start-->
 			<header class="main-nav">
-				<div class="sidebar-user text-center"><img class="img-90 rounded-circle"
-						src="<?= base_url('public/')?>images/dashboard/1.png" alt="">
-					<div class="badge-bottom"><span class="badge badge-primary">New</span></div>
+				<div class="sidebar-user text-center"><img
+						src="<?= base_url('public/')?>images/dashboard/pictures.png" alt="">
 						<h6 class="mt-3 f-14 f-w-600"><?= ucfirst($this->session->userdata('nama_satker')); ?></h6>
 					</a>
 					<p class="mb-0 font-roboto"><?= ucfirst($this->session->userdata('level')); ?></p>
