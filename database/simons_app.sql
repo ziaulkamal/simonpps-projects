@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 10, 2023 at 12:14 PM
+-- Generation Time: Sep 19, 2023 at 11:01 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -20,6 +20,33 @@ SET time_zone = "+00:00";
 --
 -- Database: `simon_apps`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ci_sessions`
+--
+
+CREATE TABLE `ci_sessions` (
+  `id` varchar(128) NOT NULL,
+  `ip_address` varchar(45) NOT NULL,
+  `timestamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `data` blob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ci_sessions`
+--
+
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
+('1sgb4g0clkfk39u9b7ilepscraoftaks', '::1', 1695112528, 0x5f5f63695f6c6173745f726567656e65726174657c693a313639353131323532383b6d6173756b7c623a313b6e616d615f7361746b65727c733a353a2261646d696e223b6c6576656c7c733a393a2273656b73692d707073223b6d61696c7c733a32343a227a6961756c6b616d616c3131303940676d61696c2e636f6d223b69645f6c6576656c7c733a313a2232223b6c6f63616c657c733a313a2238223b737563636573737c733a36383a22446f6b756d656e2064656e67616e206e616d612070656b65726a61616e2050656d62616e67756e616e204a656d626174616e207375646168206469736574756a75692021223b5f5f63695f766172737c613a313a7b733a373a2273756363657373223b733a333a226f6c64223b7d),
+('7cq5bv5qvee5p7g33pcvmen5u8sfp5mj', '::1', 1695113896, 0x5f5f63695f6c6173745f726567656e65726174657c693a313639353131333839363b6d6173756b7c623a313b6e616d615f7361746b65727c733a353a2261646d696e223b6c6576656c7c733a393a2273656b73692d707073223b6d61696c7c733a32343a227a6961756c6b616d616c3131303940676d61696c2e636f6d223b69645f6c6576656c7c733a313a2232223b6c6f63616c657c733a313a2238223b),
+('a3635rb1g70s9r0hjtsijq7s1spnj3uj', '::1', 1695110630, 0x5f5f63695f6c6173745f726567656e65726174657c693a313639353131303633303b6572727c733a34333a223c7374726f6e673e476167616c21203c2f7374726f6e673e2054617574616e20746964616b2056616c6964223b5f5f63695f766172737c613a313a7b733a333a22657272223b733a333a226f6c64223b7d),
+('fi7v9bik38nruaqmjphp3u6is6o0lu58', '::1', 1695111847, 0x5f5f63695f6c6173745f726567656e65726174657c693a313639353131313537353b6d6173756b7c623a313b6e616d615f7361746b65727c733a31343a2264696e6173206b656c617574616e223b6c6576656c7c733a353a226775657374223b6d61696c7c733a32353a227a2e6961756c6b616d616c3131303940676d61696c2e636f6d223b69645f6c6576656c7c733a313a2233223b6c6f63616c657c733a323a223138223b),
+('hkd4f1a653e6nmdlb5atb4vlmmqesce8', '::1', 1695113902, 0x5f5f63695f6c6173745f726567656e65726174657c693a313639353131333930323b),
+('mriufp8jffilvrco122aqfemmana2o3b', '::1', 1695111498, 0x5f5f63695f6c6173745f726567656e65726174657c693a313639353131313439383b),
+('ra2kjf35c8leu7kbjsotojvof3kth6a0', '::1', 1695112911, 0x5f5f63695f6c6173745f726567656e65726174657c693a313639353131323931313b6d6173756b7c623a313b6e616d615f7361746b65727c733a353a2261646d696e223b6c6576656c7c733a393a2273656b73692d707073223b6d61696c7c733a32343a227a6961756c6b616d616c3131303940676d61696c2e636f6d223b69645f6c6576656c7c733a313a2232223b6c6f63616c657c733a313a2238223b),
+('vu8lgf1esugvdtmunccn61mm2d6sh04a', '::1', 1695111192, 0x5f5f63695f6c6173745f726567656e65726174657c693a313639353131313139323b737563636573737c733a37313a223c7374726f6e673e43656b20456d61696c21203c2f7374726f6e673e205065726d696e7461616e2072657365742070617373776f72642073756461682064696b6972696d6b616e223b5f5f63695f766172737c613a313a7b733a373a2273756363657373223b733a333a226f6c64223b7d);
 
 -- --------------------------------------------------------
 
@@ -102,9 +129,13 @@ CREATE TABLE `tb_pengguna` (
 --
 
 INSERT INTO `tb_pengguna` (`id_pengguna`, `nama_satker`, `user`, `pass`, `level`, `is_activate`, `terdaftar`) VALUES
-(8, 'admin', 'ziaulkamal1109@gmail.com', '$2y$10$5jrhm.BO.K5aFIVDfk1T.e2cuAwOCzQTOfS92N2Ur0/otXIrxj1pG', 'admin', 1, '2023-09-05 12:03:16'),
+(8, 'admin', 'ziaulkamal1109@gmail.com', '$2y$10$PyrMScfrAod.wWopwY7GN.cGrTGAWmxq6t9HrEziZjrxg6LvP82HO', 'seksi-pps', 1, '2023-09-05 12:03:16'),
 (10, 'guest', 'guest@gmail.com', '$2y$10$k9/Yjd2Raf3o6GtInV6IBO9x0Pr1hVxe6iq1pNx9SK9haiEsLbRXy', 'guest', 1, '2023-09-05 15:52:41'),
-(11, 'ppss', 'pps@gmail.com', '$2y$10$XSbdEp15qWlMzgtGtJki7.tta2sWbU8mDpPggwoEYRsQ5RR/5.Bci', 'seksi-pps', 1, '2023-09-05 15:54:16');
+(11, 'ppss', 'pps@gmail.com', '$2y$10$XSbdEp15qWlMzgtGtJki7.tta2sWbU8mDpPggwoEYRsQ5RR/5.Bci', 'seksi-pps', 1, '2023-09-05 15:54:16'),
+(13, 'dinas kelautan', 'person@gmail.com', '$2y$10$tSLn.9hPhRlqEpyIomYdY.fIC5AnVdhMklo5tyNUk9l8FNIMBhG.a', 'guest', 1, '2023-09-11 06:02:45'),
+(15, 'dinas kelautan', 'budi@gmail.com', '$2y$10$lseUgB1vCj00ha0GrGEsC.FYsvwqdi5VvCXSbMpjSfSEgR914Bv0G', 'guest', 1, '2023-09-13 04:00:37'),
+(17, 'dinas pendidikan', 'shfdell@gmail.com', '$2y$10$wNDI7lPdbNW3Q0uE6VImWe7SPr/on9Ml6JBIFswFKPFw9GDBmiE7i', 'guest', 1, '2023-09-19 10:59:17'),
+(18, 'dinas kelautan', 'z.iaulkamal1109@gmail.com', '$2y$10$dUiDLZzZFrdAk0zTGyyDTufxVXCL/sALsOXR.X8xK7Mf/SMFO5Lru', 'guest', 1, '2023-09-19 10:19:19');
 
 -- --------------------------------------------------------
 
@@ -125,6 +156,29 @@ CREATE TABLE `tb_progress_pekerjaan` (
   `waktuPR` date NOT NULL,
   `updateDatePR` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_recover`
+--
+
+CREATE TABLE `tb_recover` (
+  `idRec` int(11) NOT NULL,
+  `mailRec` varchar(100) NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `timeStamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `ip_addr` varchar(50) NOT NULL,
+  `dateRequest` date NOT NULL,
+  `status` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tb_recover`
+--
+
+INSERT INTO `tb_recover` (`idRec`, `mailRec`, `token`, `timeStamp`, `ip_addr`, `dateRequest`, `status`) VALUES
+(4, 'ziaulkamal1109@gmail.com', '3e501b6501e960a24398f5c1aafac25c', '2023-09-19 08:18:47', '180.241.47.55', '2023-09-19', 0);
 
 -- --------------------------------------------------------
 
@@ -170,6 +224,7 @@ CREATE TABLE `tb_trackprogress` (
   `rcnProgress` double NOT NULL,
   `rlProgress` double NOT NULL,
   `deviasiProgress` double NOT NULL,
+  `rlKeuangan` float NOT NULL,
   `lpBulanan` text NOT NULL,
   `fotoPekerjaan` text NOT NULL,
   `timeDateTrack` varchar(20) NOT NULL,
@@ -179,6 +234,12 @@ CREATE TABLE `tb_trackprogress` (
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `ci_sessions`
+--
+ALTER TABLE `ci_sessions`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tb_dokumen`
@@ -211,6 +272,12 @@ ALTER TABLE `tb_progress_pekerjaan`
   ADD PRIMARY KEY (`id_progPR`);
 
 --
+-- Indexes for table `tb_recover`
+--
+ALTER TABLE `tb_recover`
+  ADD PRIMARY KEY (`idRec`);
+
+--
 -- Indexes for table `tb_status`
 --
 ALTER TABLE `tb_status`
@@ -236,25 +303,39 @@ ALTER TABLE `tb_trackprogress`
 -- AUTO_INCREMENT for table `tb_log`
 --
 ALTER TABLE `tb_log`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=192;
 
 --
 -- AUTO_INCREMENT for table `tb_pengguna`
 --
 ALTER TABLE `tb_pengguna`
-  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `tb_progress_pekerjaan`
 --
 ALTER TABLE `tb_progress_pekerjaan`
-  MODIFY `id_progPR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_progPR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+
+--
+-- AUTO_INCREMENT for table `tb_recover`
+--
+ALTER TABLE `tb_recover`
+  MODIFY `idRec` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_trackprogress`
 --
 ALTER TABLE `tb_trackprogress`
-  MODIFY `trackId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `trackId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+
+DELIMITER $$
+--
+-- Events
+--
+CREATE DEFINER=`simons`@`localhost` EVENT `clear_tb_recover_event` ON SCHEDULE EVERY 30 MINUTE STARTS '2023-09-19 10:44:49' ON COMPLETION NOT PRESERVE ENABLE DO TRUNCATE TABLE tb_recover$$
+
+DELIMITER ;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
