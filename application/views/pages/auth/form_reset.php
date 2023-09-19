@@ -53,10 +53,10 @@
            
             <div class="login-card">
               <form method="POST" action="<?= base_url($action); ?>" enctype="multipart/form-data" class="theme-form login-form user">
-               <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>">
-                <h4 class="text-center">Login</h4>
-                <h6 class="text-center">Welcome back! Log in to your account.</h6>
-                <?php $this->load->view('partials/alerts'); ?>
+
+                <h4 class="text-center"><?= $title ?></h4>
+                <h6 class="text-center">Proses Aktivasi Password Baru</h6>
+
                 <?php if ($this->session->userdata('danger')) { ?>
                  <div class="alert alert-success dark alert-dismissible fade show" role="alert"><?= $this->session->userdata('danger');?>
                     <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -71,28 +71,29 @@
                  <div class="alert alert-primary dark alert-dismissible fade show" role="alert"><?= $this->session->flashdata('logout');?>
                 </div>
                 <?php }?>
-                <div class="form-group">
+                <div class="form-group" style="display:none">
                   <label>Email</label>
                   <div class="input-group"><span class="input-group-text"><i class="icon-user"></i></span>
-                    <input class="form-control text-dark" type="text" id="user" name="user" value="<?= set_value('user'); ?>" autocomplete="off">
+                    <input name="time" type="hidden" value="<?= $data->timeStamp ?>" autocomplete="off">
+                    <input class="form-control text-dark" type="text" id="user" name="user" value="<?= $data->mailRec ?>" autocomplete="off" >
                   </div>
                   <div class="txt-danger"><?= form_error('user'); ?></div>
                 </div>
                 <div class="form-group">
-                    <label>Password</label>
+                    <label>Password Baru</label>
                     <div class="input-group"><span class="input-group-text"><i class="icon-lock"></i></span>
-                    <input class="form-control text-dark" type="password" id="pass" name="pass" value="<?= set_value('pass'); ?>"  autocomplete="off">
+                    <input class="form-control text-dark" type="password" id="pass" name="pass" value=""  autocomplete="off">
                     <div class="show-hide"><span class="show"></span></div>
                   </div>
                   <div class="txt-danger"><?= form_error('pass'); ?></div>
                 </div>
                 <div class="form-group mb-2">
-                  <a class="link" href="<?= base_url('forget_password'); ?>">Forgot password?</a>
+                  <!--<a class="link" href="<?= base_url('forget_password'); ?>">Forgot password?</a>-->
                 </div>
                 <div class="form-group mt-5">
-                  <button class="btn btn-primary btn-block" type="submit">Log in</button>
+                  <button class="btn btn-primary btn-block" type="submit">Simpan</button>
                 </div>
-                <p>Belum punya akun ?<a class="ms-2" href="<?= base_url('register')?>">Register</a></p>
+                <!--<p>Belum punya akun ?<a class="ms-2" href="<?= base_url('register')?>">Register</a></p>-->
               </form>
             </div>
           </div>
