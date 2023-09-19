@@ -65,7 +65,7 @@
                   <div class="form-group">
                     <button class="btn btn-primary btn-block" type="submit">Ajukan</button>
                   </div>
-                  <p>Sudah punya akun ?<a class="ms-2" href="<?= base_url('auth'); ?>">Log in</a></p>
+                  <p>Already have an password?<a class="ms-2" href="login.html">Sign in</a></p>
                 </form>
               </div>
             </div>

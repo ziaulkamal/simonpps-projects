@@ -12,16 +12,16 @@ class Main extends CI_Controller {
         $this->load->model('Auth_model', 'auth');
         $this->load->model('Admin/Model_admin_model', 'main');
         
-        if ( $this->session->userdata('masuk') != TRUE ) {
-            // $this->session->set_flashdata('err', 'User Atau Password Salah');
-            redirect('auth','refresh');
-            
-        }       
+    
     }
     
     function index()
     {    
-
+        if ( $this->session->userdata('masuk') != TRUE ) {
+            // $this->session->set_flashdata('err', 'User Atau Password Salah');
+            redirect('auth','refresh');
+            
+        }   
         $count = $this->main->result_done()->result();
 $countSurvey = $this->main->survey_done()->result();
 
